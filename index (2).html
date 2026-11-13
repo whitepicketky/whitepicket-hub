@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>White Picket Marketing Hub</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#EFEDE5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#EFEDE5; --sand-2:#E6E3D9; --navy:#052B49; --sky:#A9B4B9; --red:#E22726;
+  --bg:var(--sand); --surface:#FFFFFF; --surface-2:var(--sand-2); --ink:var(--navy); --ink-2:rgba(5,43,73,.66);
+  --rule:rgba(5,43,73,.16); --rule-2:rgba(5,43,73,.08); --accent:var(--red); --on-ink:#FFFFFF; --picket-off:#CBD2D4;
+  --bar:rgba(239,237,229,.86); --shade:0 1px 0 rgba(5,43,73,.06), 0 18px 40px -24px rgba(5,43,73,.35);
+  --display:"Mirage","Fraunces","Iowan Old Style",Georgia,serif;
+  --text:"Jost","Avenir Next","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.32,.72,0,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#061A2B; --surface:#0C2740; --surface-2:#0A2136; --ink:#EFEDE5; --ink-2:rgba(239,237,229,.68);
+  --rule:rgba(239,237,229,.18); --rule-2:rgba(239,237,229,.09); --accent:#F0504F; --on-ink:#061A2B; --picket-off:#2C465B;
+  --bar:rgba(6,26,43,.86); --shade:0 1px 0 rgba(0,0,0,.2), 0 18px 40px -24px rgba(0,0,0,.7); color-scheme:dark;}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:80px}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--text); font-size:17px; line-height:1.45; -webkit-font-smoothing:antialiased; -webkit-tap-highlight-color:transparent; padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%; display:block}
+button,input,select,textarea{font:inherit; color:inherit}
+button{cursor:pointer}
+h1,h2,h3,p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:6px}
+
+/* top bar */
+.top{position:sticky; top:0; z-index:20; background:var(--bar); backdrop-filter:saturate(1.4) blur(14px); -webkit-backdrop-filter:saturate(1.4) blur(14px); border-bottom:1px solid var(--rule-2); padding-top:env(safe-area-inset-top,0px)}
+.top-in{max-width:1120px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; gap:18px}
+.mark{display:flex; align-items:center; gap:10px; background:none; border:0; padding:4px 0; text-align:left}
+.mark svg{width:22px; height:26px; flex:none}
+.mark b{font-family:var(--display); font-weight:400; font-size:22px; letter-spacing:-.01em; line-height:1}
+.mark span{display:block; font-size:12.5px; color:var(--ink-2); margin-top:3px; line-height:1}
+.nav{display:none; margin-left:auto; gap:4px}
+.nav button{background:none; border:0; padding:9px 14px; border-radius:999px; font-weight:500; font-size:15.5px; color:var(--ink-2)}
+.nav button[aria-current="page"]{color:var(--ink); background:var(--surface)}
+.who{margin-left:auto; width:38px; height:38px; border-radius:50%; background:var(--ink); color:var(--on-ink); display:grid; place-items:center; font-weight:600; font-size:14px; flex:none}
+.count{display:inline-grid; place-items:center; min-width:19px; height:19px; padding:0 5px; border-radius:999px; background:var(--accent); color:#fff; font-size:12px; font-weight:600; margin-left:6px; vertical-align:1px}
+
+/* bottom tabs on phones */
+.tabs{position:fixed; left:0; right:0; bottom:0; z-index:20; display:grid; grid-template-columns:repeat(2,1fr); background:var(--bar); backdrop-filter:saturate(1.4) blur(14px); -webkit-backdrop-filter:saturate(1.4) blur(14px); border-top:1px solid var(--rule); padding:6px 10px calc(6px + env(safe-area-inset-bottom,0px))}
+.tabs button{background:none; border:0; padding:6px 4px 4px; display:grid; justify-items:center; gap:3px; font-size:12.5px; font-weight:500; color:var(--ink-2); position:relative}
+.tabs svg{width:24px; height:24px}
+.tabs button[aria-current="page"]{color:var(--ink)}
+.tabs button[aria-current="page"] svg{color:var(--accent)}
+.tabs .count{position:absolute; top:0; left:calc(50% + 6px); margin:0}
+.tabs.off{display:none}
+
+main{max-width:1120px; margin:0 auto; padding:22px 20px 120px}
+.view{animation:rise .42s var(--ease)}
+@keyframes rise{from{opacity:0; transform:translateY(8px)}to{opacity:1; transform:none}}
+
+.hello{font-family:var(--display); font-weight:400; font-size:clamp(34px,8.6vw,56px); line-height:1.02; letter-spacing:-.02em}
+.sub{color:var(--ink-2); margin-top:10px; max-width:52ch}
+.h2{font-family:var(--display); font-weight:400; font-size:26px; letter-spacing:-.01em; line-height:1.1}
+.small{font-size:14.5px; color:var(--ink-2)}
+
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:0 20px; border-radius:999px; border:1px solid var(--ink); background:var(--ink); color:var(--on-ink); font-weight:500; font-size:16px; white-space:nowrap; text-decoration:none; transition:transform .15s var(--ease), opacity .15s}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent; color:var(--ink); border-color:var(--rule)}
+.btn.quiet{background:var(--surface-2); color:var(--ink); border-color:transparent}
+.btn.sm{min-height:40px; padding:0 15px; font-size:15px}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.5; pointer-events:none}
+.btn svg{width:18px; height:18px; flex:none}
+.back{display:inline-flex; align-items:center; gap:6px; background:none; border:0; padding:8px 0; color:var(--ink-2); font-weight:500; font-size:15.5px}
+.back svg{width:18px; height:18px}
+
+/* the fence: four pickets, one per stage */
+.fence{display:inline-grid; grid-auto-flow:column; gap:5px; align-items:end; position:relative; padding:0 2px}
+.fence::after{content:""; position:absolute; left:0; right:0; bottom:38%; height:2px; background:var(--picket-off); z-index:0}
+.fence i{display:block; width:9px; height:26px; background:var(--picket-off); clip-path:polygon(50% 0,100% 30%,100% 100%,0 100%,0 30%); position:relative; z-index:1}
+.fence i.on{background:var(--ink)} .fence i.now{background:var(--accent)}
+.fence.big{display:grid; grid-template-columns:repeat(4,1fr); gap:0; padding:0; width:100%; align-items:start; margin-top:26px}
+.fence.big::after{bottom:auto; top:46px; height:3px}
+.fence.big .p{display:grid; justify-items:center; gap:10px; text-align:center; position:relative; z-index:1}
+.fence.big i{width:22px; height:66px; transform-origin:bottom; animation:grow .5s var(--ease) both}
+.fence.big .p:nth-child(2) i{animation-delay:.07s}.fence.big .p:nth-child(3) i{animation-delay:.14s}.fence.big .p:nth-child(4) i{animation-delay:.21s}
+@keyframes grow{from{transform:scaleY(.2); opacity:0}to{transform:none; opacity:1}}
+.fence.big b{font-weight:500; font-size:14.5px; line-height:1.15; display:block}
+.fence.big span{font-size:13px; color:var(--ink-2); display:block; margin-top:2px}
+
+/* home */
+.feature{margin-top:26px; background:var(--surface); border-radius:22px; overflow:hidden; box-shadow:var(--shade); display:grid}
+.feature .ph{position:relative; aspect-ratio:3/2; background:var(--surface-2)}
+.feature .ph img{width:100%; height:100%; object-fit:cover}
+.ph-edge{position:absolute; left:0; right:0; bottom:-1px; height:22px; width:100%; color:var(--surface)}
+.feature .body{padding:10px 20px 22px}
+.status{display:inline-flex; align-items:center; gap:8px; font-size:14.5px; font-weight:500; white-space:nowrap}
+.status::before{content:""; width:8px; height:8px; border-radius:50%; background:var(--accent)}
+.status.wait::before{background:var(--sky)} .status.done::before{background:var(--ink)}
+.feature h2{font-family:var(--display); font-weight:400; font-size:clamp(30px,7.4vw,44px); line-height:1.04; letter-spacing:-.02em; margin-top:10px}
+.facts{color:var(--ink-2); margin-top:8px}
+.feature .acts{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px}
+.feature .acts .btn{flex:1 1 150px}
+.strip{display:flex; gap:10px; margin-top:18px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip button{flex:none; background:none; border:0; padding:0; text-align:left; width:110px}
+.strip .mini{height:132px; border-radius:8px; overflow:hidden; box-shadow:0 0 0 1px var(--rule-2); background:var(--surface-2)}
+.strip .mini img{width:100%; height:100%; object-fit:cover}
+.strip span{display:block; font-size:13px; color:var(--ink-2); margin-top:6px; line-height:1.25}
+
+.bar{display:flex; align-items:end; justify-content:space-between; gap:14px; margin:40px 0 14px; flex-wrap:wrap}
+.chips{display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; margin:0 -20px; padding:0 20px}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none; background:transparent; border:1px solid var(--rule); border-radius:999px; padding:8px 15px; font-size:15px; font-weight:500; color:var(--ink-2)}
+.chips button[aria-pressed="true"]{background:var(--ink); color:var(--on-ink); border-color:var(--ink)}
+.rows{display:grid; gap:0; border-top:1px solid var(--rule)}
+.row{display:grid; grid-template-columns:92px 1fr auto; gap:14px; align-items:center; padding:14px 0; border:0; border-bottom:1px solid var(--rule); background:none; text-align:left; width:100%}
+.row img{width:92px; height:72px; object-fit:cover; border-radius:10px; background:var(--surface-2)}
+.row h3{font-family:var(--display); font-weight:400; font-size:21px; line-height:1.12; letter-spacing:-.01em}
+.row p{font-size:14.5px; color:var(--ink-2); margin-top:3px}
+.row .state{font-size:14.5px; margin-top:6px; color:var(--ink); font-weight:500}
+.empty{padding:34px 0; color:var(--ink-2); border-bottom:1px solid var(--rule)}
+.note{margin-top:34px; font-size:13.5px; color:var(--ink-2); max-width:62ch}
+
+/* listing */
+.listing{display:grid; gap:28px; margin-top:6px}
+.hero{border-radius:22px; overflow:hidden; background:var(--surface); box-shadow:var(--shade)}
+.hero .ph{position:relative; aspect-ratio:3/2; background:var(--surface-2)}
+.hero .ph img{width:100%; height:100%; object-fit:cover}
+.hero .body{padding:8px 20px 22px}
+.hero h1{font-family:var(--display); font-weight:400; font-size:clamp(32px,8vw,46px); line-height:1.03; letter-spacing:-.02em; margin-top:10px}
+.hero .price{font-family:var(--display); font-size:24px; margin-top:12px}
+.hero .oh{margin-top:10px; color:var(--accent); font-weight:500}
+.ledger{margin:22px 0 0; border-top:1px solid var(--rule)}
+.ledger div{display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid var(--rule); font-size:15.5px}
+.ledger dt{color:var(--ink-2)} .ledger dd{margin:0; font-weight:500; text-align:right}
+.group{display:grid; gap:14px}
+.group + .group{margin-top:34px}
+.group header{display:flex; align-items:baseline; justify-content:space-between; gap:12px; border-bottom:1px solid var(--rule); padding-bottom:10px}
+.group header p{font-size:14.5px; color:var(--ink-2)}
+.pieces{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 14px}
+.piece{display:grid; gap:10px; align-content:start}
+.piece .thumb{background:var(--surface-2); border:0; padding:0; border-radius:16px; display:block; aspect-ratio:1/1.12; position:relative; width:100%; overflow:hidden}
+.piece .thumb img{position:absolute; inset:14px; width:calc(100% - 28px); height:calc(100% - 28px); max-width:none; object-fit:contain; filter:drop-shadow(0 8px 14px rgba(5,43,73,.28))}
+.mock{position:absolute; inset:14px; display:flex; align-items:center; justify-content:center}
+.mock .card{position:relative; height:100%; max-width:100%; border-radius:4px; overflow:hidden; box-shadow:0 8px 14px rgba(5,43,73,.28); background:#EFEDE5}
+.mock .card.square{aspect-ratio:1/1}.mock .card.portrait{aspect-ratio:4/5}.mock .card.story{aspect-ratio:9/16}.mock .card.brochure{aspect-ratio:11/17}
+.mock .card img{position:static; inset:auto; width:100%; height:72%; object-fit:cover; filter:none}
+.mock .card div{padding:6% 8%; color:#052B49; text-align:center}
+.mock .card small{display:block; font-size:9px; letter-spacing:.14em; text-transform:uppercase; font-weight:600}
+.mock .card strong{display:block; font-family:var(--display); font-weight:400; font-size:13px; line-height:1.1; margin-top:3px}
+.flag{position:absolute; z-index:1; top:10px; left:10px; background:var(--accent); color:#fff; font-size:12px; font-weight:600; padding:3px 9px; border-radius:999px}
+.flag.soft{background:var(--surface); color:var(--ink); box-shadow:0 0 0 1px var(--rule)}
+.piece h3{font-weight:500; font-size:16.5px; line-height:1.2}
+.piece p{font-size:13.5px; color:var(--ink-2); margin-top:2px}
+.piece .acts{display:flex; gap:8px}
+.piece .acts .btn{flex:1; padding:0 10px}
+.caption{background:var(--surface); border-radius:16px; padding:18px 18px 16px}
+.caption p.t{white-space:pre-wrap; font-size:15.5px; margin-top:8px}
+.caption .btn{margin-top:14px}
+.asks{display:grid; gap:12px; grid-template-columns:1fr}
+.ask{background:var(--surface); border:1px solid var(--rule-2); border-radius:16px; padding:16px 18px; text-align:left; display:grid; grid-template-columns:1fr auto; gap:4px 14px; align-items:center; transition:border-color .2s}
+.ask:hover{border-color:var(--ink)}
+.ask b{font-family:var(--display); font-weight:400; font-size:20px}
+.ask span{grid-column:1; font-size:14px; color:var(--ink-2)}
+.ask svg{grid-row:1/3; grid-column:2; width:20px; height:20px; color:var(--ink-2)}
+
+/* requests list */
+.reqs{display:grid; gap:14px; margin-top:26px}
+.reqcard{background:var(--surface); border-radius:18px; padding:18px; display:grid; gap:12px; box-shadow:var(--shade)}
+.reqcard .head{display:flex; justify-content:space-between; gap:12px; align-items:start}
+.reqcard h3{font-family:var(--display); font-weight:400; font-size:22px; line-height:1.1}
+.steps{display:grid; gap:0; font-size:15px; margin:0; padding:0}
+.steps li{list-style:none; display:grid; grid-template-columns:18px 1fr auto; gap:10px; align-items:center; padding:8px 0; border-top:1px solid var(--rule-2)}
+.steps li::before{content:""; width:9px; height:14px; background:var(--picket-off); clip-path:polygon(50% 0,100% 30%,100% 100%,0 100%,0 30%); justify-self:center}
+.steps li.on::before{background:var(--ink)} .steps li.now::before{background:var(--accent)}
+.steps li.now{font-weight:500} .steps span{color:var(--ink-2); font-size:14px}
+
+/* viewer + request sheet */
+dialog{border:0; padding:0; background:var(--bg); color:var(--ink); width:100%; max-width:100%; height:100%; max-height:100%; margin:0}
+dialog::backdrop{background:rgba(6,26,43,.6)}
+.dlg{height:100%; display:grid; grid-template-rows:auto 1fr auto; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px)}
+.dlg header{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px 16px 12px 20px}
+.dlg header h2{font-weight:500; font-size:17px} .dlg header p{font-size:13.5px; color:var(--ink-2)}
+.x{width:44px; height:44px; border-radius:50%; border:0; background:var(--surface-2); display:grid; place-items:center; flex:none}
+.x svg{width:20px; height:20px}
+.stage{min-height:0; display:grid; place-items:center; padding:6px 20px; overflow:auto}
+.stage img{max-height:100%; max-width:100%; width:auto; height:auto; border-radius:6px; box-shadow:0 24px 60px -30px rgba(5,43,73,.7)}
+.stage .mock{position:relative; inset:auto; height:min(70vh,640px); width:100%}
+.stage .mock .card small{font-size:12px} .stage .mock .card strong{font-size:22px}
+.dlg footer{padding:14px 20px 18px; display:grid; gap:10px}
+.dlg footer .acts{display:flex; gap:10px}
+.dlg footer .btn{flex:1}
+.hint{font-size:13.5px; color:var(--ink-2); text-align:center}
+.form{padding:4px 20px 10px; overflow:auto}
+.field{display:grid; gap:6px; margin-top:16px}
+.field label{font-size:14.5px; font-weight:500}
+.field input,.field select,.field textarea{background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:12px 14px; min-height:48px; width:100%}
+.field textarea{min-height:120px; resize:vertical}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.done{display:grid; place-items:center; text-align:center; gap:12px; padding:30px 10px}
+
+.toast{position:fixed; left:50%; bottom:calc(92px + env(safe-area-inset-bottom,0px)); transform:translate(-50%,20px); background:var(--ink); color:var(--on-ink); padding:12px 18px; border-radius:999px; font-size:15px; font-weight:500; opacity:0; pointer-events:none; transition:.3s var(--ease); z-index:60; max-width:90vw; text-align:center}
+.toast.show{opacity:1; transform:translate(-50%,0)}
+
+/* welcome / admin */
+.welcome{min-height:68vh; display:grid; place-content:center; justify-items:center; text-align:center; gap:16px}
+.welcome .fence{transform:scale(1.4); margin-bottom:10px}
+.roster{margin-top:28px; width:min(560px,100%); display:grid; gap:0; border-top:1px solid var(--rule); text-align:left}
+.roster button{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:13px 2px; border:0; border-bottom:1px solid var(--rule); background:none; font-size:16px}
+.roster button span{color:var(--ink-2); font-size:14px}
+.search{width:min(560px,100%); margin-top:18px; background:var(--surface); border:1px solid var(--rule); border-radius:999px; padding:12px 18px; min-height:48px}
+
+@media (min-width:860px){
+  .tabs{display:none} .nav{display:flex} .who{margin-left:8px}
+  main{padding:44px 32px 90px} .top-in{padding:14px 32px}
+  .feature{grid-template-columns:1.15fr 1fr} .feature .ph{aspect-ratio:auto; min-height:400px}
+  .feature .ph-edge{display:none} .feature .body{padding:34px 36px; align-self:center}
+  .rows{grid-template-columns:1fr 1fr; column-gap:40px}
+  .listing{grid-template-columns:400px 1fr; gap:48px; align-items:start}
+  .listing aside{position:sticky; top:96px}
+  .pieces{grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px 18px}
+  .asks{grid-template-columns:1fr 1fr}
+  .reqs{grid-template-columns:1fr 1fr; gap:20px; align-items:start}
+  dialog{width:min(920px,92vw); height:min(900px,92vh); border-radius:22px; margin:auto}
+  dialog.sheet{height:auto; max-height:92vh; width:min(560px,92vw)}
+  .toast{bottom:36px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <button class="mark" id="mark" aria-label="White Picket Marketing Hub, home">
+    <svg viewBox="0 0 22 26" aria-hidden="true"><path d="M3 9l4-5 4 5v15H3z" fill="currentColor"/><path d="M13 9l4-5 4 5v15h-8z" fill="var(--accent)"/></svg>
+    <div><b>White Picket</b><span>Marketing hub</span></div>
+  </button>
+  <nav class="nav" aria-label="Sections"></nav>
+  <div class="who" id="who" hidden></div>
+</div></header>
+<main id="main" tabindex="-1"></main>
+<nav class="tabs off" aria-label="Sections"></nav>
+
+<dialog id="viewer" aria-labelledby="vt"><div class="dlg">
+  <header><div><h2 id="vt"></h2><p id="vs"></p></div><button class="x" id="vx" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
+  <div class="stage" id="vstage"></div>
+  <footer><div class="acts" id="vacts"></div><p class="hint" id="vh"></p></footer>
+</div></dialog>
+<dialog id="sheet" class="sheet" aria-labelledby="st"><div class="dlg">
+  <header><div><h2 id="st"></h2><p id="ss"></p></div><button class="x" id="sx" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
+  <div class="form" id="sbody"></div>
+  <footer><div class="acts" id="sacts"></div></footer>
+</div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script id="seed" type="application/json">{"config": {"brokerage": "White Picket Real Estate", "requestEmail": "REPLACE_WITH_REQUEST_INBOX@whitepicketky.com", "updated": "2026-11-12T19:58:00-05:00"}, "agents": [{"token": "taylor-archie-6427", "name": "Taylor Archie", "first": "Taylor", "email": "taylor@whitepicketky.com", "phone": "502-994-3796", "headshot": ""}, {"token": "danielle-baise-800e", "name": "Danielle Baise", "first": "Danielle", "email": "danielle@whitepicketky.com", "phone": "502-468-6863", "headshot": ""}, {"token": "betsy-barefoot-b6e1", "name": "Betsy Barefoot", "first": "Betsy", "email": "betsy@whitepicketky.com", "phone": "502-744-8302", "headshot": ""}, {"token": "amy-batcher-e3ae", "name": "Amy Batcher", "first": "Amy", "email": "amy@whitepicketky.com", "phone": "408-799-5036", "headshot": ""}, {"token": "paula-burch-5899", "name": "Paula Burch", "first": "Paula", "email": "paula@whitepicketky.com", "phone": "502-644-7132", "headshot": ""}, {"token": "allison-carrera-6b5d", "name": "Allison Carrera", "first": "Allison", "email": "allison@whitepicketky.com", "phone": "502-377-7032", "headshot": ""}, {"token": "anna-carver-398e", "name": "Anna Carver", "first": "Anna", "email": "anna@whitepicketky.com", "phone": "502-631-5459", "headshot": ""}, {"token": "faith-causey-3616", "name": "Faith Causey", "first": "Faith", "email": "faith@whitepicketky.com", "phone": "502-526-1872", "headshot": ""}, {"token": "amanda-croak-bbb8", "name": "Amanda Croak", "first": "Amanda", "email": "amanda@whitepicketky.com", "phone": "502-415-2277", "headshot": ""}, {"token": "kyle-elmore-d871", "name": "Kyle Elmore", "first": "Kyle", "email": "kyle@whitepicketky.com", "phone": "502-389-9920", "headshot": ""}, {"token": "maude-van-der-elst-86cf", "name": "Maude Van Der Elst", "first": "Maude", "email": "maude@whitepicketky.com", "phone": "502-468-3227", "headshot": ""}, {"token": "katie-esterle-q8m4", "name": "Katie Esterle", "first": "Katie", "email": "katie@whitepicketky.com", "phone": "502-810-8808", "headshot": ""}, {"token": "caroline-ferrell-8b18", "name": "Caroline Ferrell", "first": "Caroline", "email": "caroline@whitepicketky.com", "phone": "502-438-8452", "headshot": ""}, {"token": "caitlin-griffee-3c95", "name": "Caitlin Griffee", "first": "Caitlin", "email": "caitlin@whitepicketky.com", "phone": "502-842-4463", "headshot": ""}, {"token": "leah-heitzman-cd11", "name": "Leah Heitzman", "first": "Leah", "email": "leah@whitepicketky.com", "phone": "502-291-5213", "headshot": ""}, {"token": "emery-howard-r3x9", "name": "Emery Howard", "first": "Emery", "email": "emery@whitepicketky.com", "phone": "270-535-2605", "headshot": ""}, {"token": "isabella-kent-9abe", "name": "Isabella Kent", "first": "Isabella", "email": "isabella@whitepicketky.com", "phone": "502-741-0541", "headshot": ""}, {"token": "blaire-kidwell-db72", "name": "Blaire Kidwell", "first": "Blaire", "email": "blaire@whitepicketky.com", "phone": "502-767-3507", "headshot": ""}, {"token": "erin-kidwell-4375", "name": "Erin Kidwell", "first": "Erin", "email": "erin@whitepicketky.com", "phone": "502-639-1529", "headshot": ""}, {"token": "andrew-kolkmeyer-1d65", "name": "Andrew Kolkmeyer", "first": "Andrew", "email": "andrew@whitepicketky.com", "phone": "859-816-9152", "headshot": ""}, {"token": "alyssa-langan-436b", "name": "Alyssa Langan", "first": "Alyssa", "email": "alyssa@whitepicketky.com", "phone": "502-457-3934", "headshot": ""}, {"token": "kaelin-masters-84ab", "name": "Kaelin Masters", "first": "Kaelin", "email": "kaelin@whitepicketky.com", "phone": "502-381-1550", "headshot": ""}, {"token": "lauren-mcdowell-66e9", "name": "Lauren McDowell", "first": "Lauren", "email": "lauren@whitepicketky.com", "phone": "502-424-2811", "headshot": ""}, {"token": "shelby-mcfarland-eb44", "name": "Shelby Mcfarland", "first": "Shelby", "email": "shelby@whitepicketky.com", "phone": "502-767-4332", "headshot": ""}, {"token": "abby-metzmeier-7k2p", "name": "Abby Metzmeier", "first": "Abby", "email": "abby@whitepicketky.com", "phone": "502-619-2582", "headshot": ""}, {"token": "sienna-palombino-f215", "name": "Sienna Palombino", "first": "Sienna", "email": "sienna@whitepicketky.com", "phone": "502-529-9522", "headshot": ""}, {"token": "elizabeth-park-7697", "name": "Elizabeth Park", "first": "Elizabeth", "email": "elizabeth@whitepicketky.com", "phone": "502-600-2620", "headshot": ""}, {"token": "claudia-pham-88d8", "name": "Claudia Pham", "first": "Claudia", "email": "claudia@whitepicketky.com", "phone": "502-619-0200", "headshot": ""}, {"token": "jenna-plumeri-0990", "name": "Jenna Plumeri", "first": "Jenna", "email": "jenna@whitepicketky.com", "phone": "502-415-3684", "headshot": ""}, {"token": "william-powell-db6f", "name": "William Powell", "first": "William", "email": "william@whitepicketky.com", "phone": "502-650-0075", "headshot": ""}, {"token": "lyle-rommelman-ad83", "name": "Lyle Rommelman", "first": "Lyle", "email": "lyle@whitepicketky.com", "phone": "270-210-5542", "headshot": ""}, {"token": "lydia-schmitt-c99c", "name": "Lydia Schmitt", "first": "Lydia", "email": "lydia@whitepicketky.com", "phone": "502-851-7799", "headshot": ""}, {"token": "katherine-sims-c743", "name": "Katherine Sims", "first": "Katherine", "email": "katherine@whitepicketky.com", "phone": "502-523-2522", "headshot": ""}, {"token": "leia-spickard-c973", "name": "Leia Spickard", "first": "Leia", "email": "leia@whitepicketky.com", "phone": "502-693-8284", "headshot": ""}, {"token": "tiffany-stout-bf5e", "name": "Tiffany Stout", "first": "Tiffany", "email": "tiffany@whitepicketky.com", "phone": "502-592-4651", "headshot": ""}, {"token": "joshua-watkins-1beb", "name": "Joshua Watkins", "first": "Joshua", "email": "joshua@whitepicketky.com", "phone": "502-510-1579", "headshot": ""}, {"token": "bryan-weede-591c", "name": "Bryan Weede", "first": "Bryan", "email": "bryan@whitepicketky.com", "phone": "502-295-7411", "headshot": ""}, {"token": "elizabeth-westgate-e49a", "name": "Elizabeth Westgate", "first": "Elizabeth", "email": "elizabethw@whitepicketky.com", "phone": "607-765-1496", "headshot": ""}, {"token": "tara-wood-b24a", "name": "Tara Wood", "first": "Tara", "email": "tara@whitepicketky.com", "phone": "502-727-2584", "headshot": ""}], "listings": [{"mls": "1734442", "agent": "abby-metzmeier-7k2p", "street": "6300 Shadow Wood Ct", "city": "Prospect, KY 40059", "price": 510000, "beds": 4, "baths": "2 full \u00b7 2 half", "sqft": 3338, "status": "Active", "stage": 0, "photo": "https://cdn.resize.sparkplatform.com/lou/1600x1200/true/20261112161603485331000000-o.jpg", "dates": {"listed": "Nov 12"}, "openHouse": null, "graphics": [{"id": "nl-post", "name": "New Listing Post", "stage": "listed", "shape": "square", "img": "", "file": "", "state": "ready", "label": "Instagram post", "dim": "1080 \u00d7 1080"}, {"id": "nl-story", "name": "New Listing Story", "note": "3 frames", "stage": "listed", "shape": "story", "img": "", "file": "", "state": "ready", "label": "Instagram story", "dim": "1080 \u00d7 1920"}, {"id": "brochure", "name": "Listing Brochure", "note": "Print-ready, 11\u00d717 folded", "stage": "listed", "shape": "brochure", "img": "", "file": "", "state": "review", "label": "Folded brochure, print", "dim": "11 \u00d7 17"}], "state": "ready", "isNew": true, "hook": "Tucked at the back of a quiet cul-de-sac off Wolf Pen Branch Road, with a kitchen renovated in the last five years."}, {"mls": "1731715", "agent": "katie-esterle-q8m4", "street": "723 Gwendolyn St", "city": "Louisville, KY 40203", "price": 210000, "beds": null, "baths": null, "sqft": null, "status": "Under Contract", "stage": 2, "photo": "https://cdn.resize.sparkplatform.com/lou/1600x1200/true/20261012094358072787000000-o.jpg", "dates": {"listed": "Oct 12", "contract": "Nov 12"}, "openHouse": null, "graphics": [{"id": "uc-post", "name": "Under Contract Post", "stage": "contract", "shape": "portrait", "img": "", "file": "", "state": "ready", "label": "Instagram post", "dim": "1080 \u00d7 1350"}, {"id": "uc-story", "name": "Under Contract Story", "stage": "contract", "shape": "story", "img": "", "file": "", "state": "ready", "label": "Instagram story", "dim": "1080 \u00d7 1920"}], "state": "ready", "isNew": true}, {"mls": "1733379", "agent": "emery-howard-r3x9", "street": "3129 Hewitt Ave", "city": "Louisville, KY 40220", "price": 324000, "beds": null, "baths": null, "sqft": null, "status": "Active", "stage": 1, "photo": "https://cdn.resize.sparkplatform.com/lou/1600x1200/true/20261030155405071461000000-o.jpg", "dates": {"listed": "Oct 30", "openHouse": "Nov 15"}, "openHouse": {"label": "Sunday, Nov 15 \u00b7 2\u20134 PM"}, "graphics": [{"id": "oh-post", "name": "Open House Post", "note": "Sun, Nov 15 \u00b7 2\u20134 PM", "stage": "openhouse", "shape": "portrait", "img": "", "file": "", "state": "ready", "label": "Instagram post", "dim": "1080 \u00d7 1350"}, {"id": "oh-story", "name": "Open House Story", "note": "Sun, Nov 15 \u00b7 2\u20134 PM", "stage": "openhouse", "shape": "story", "img": "", "file": "", "state": "ready", "label": "Instagram story", "dim": "1080 \u00d7 1920"}], "state": "ready", "isNew": true}], "requests": []}</script>
+<script>
+(function(){
+"use strict";
+const DATA_URL = "data.json";
+let DB = {config:{}, agents:[], listings:[], requests:[]}, AGENT = null, filter = "all";
+
+/* helpers */
+const $ = (s, r=document) => r.querySelector(s);
+const h = (tag, attrs={}, ...kids) => { const el = document.createElement(tag); for (const [k,v] of Object.entries(attrs||{})){ if (k==="class") el.className = v; else if (k.startsWith("on")) el.addEventListener(k.slice(2), v); else if (v !== false && v != null) el.setAttribute(k, v === true ? "" : v); } for (const c of kids.flat()) if (c != null && c !== false) el.append(c.nodeType ? c : document.createTextNode(c)); return el; };
+const icon = d => { const s = document.createElementNS("http://www.w3.org/2000/svg","svg"); s.setAttribute("viewBox","0 0 24 24"); s.setAttribute("fill","none"); s.setAttribute("stroke","currentColor"); s.setAttribute("stroke-width","1.8"); s.setAttribute("stroke-linecap","round"); s.setAttribute("stroke-linejoin","round"); s.setAttribute("aria-hidden","true"); s.innerHTML = d; return s; };
+const IC = { down:'<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>', back:'<path d="M15 6l-6 6 6 6"/>', copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/>', home:'<path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-6h4v6"/>', inbox:'<path d="M4 13l2.5-7h11L20 13v6H4z"/><path d="M4 13h5l1 2h4l1-2h5"/>', next:'<path d="M9 6l6 6-6 6"/>', eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>' };
+const money = n => n ? "$" + Number(n).toLocaleString("en-US") : "";
+const STAGES = ["Listed","Open house","Under contract","Sold"];
+const KEY = {listed:0, openhouse:1, contract:2, sold:3};
+const toast = t => { const el = $("#toast"); el.textContent = t; el.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("show"), 2800); };
+const params = new URLSearchParams(location.search);
+const facts = L => [L.beds && `${L.beds} bed`, L.baths && `${L.baths} bath`, L.sqft && `${Number(L.sqft).toLocaleString("en-US")} sq ft`].filter(Boolean).join(", ");
+
+const fence = (stage, big, L) => {
+  if (!big) return h("span", {class:"fence", role:"img", "aria-label":`Stage: ${STAGES[stage]}`}, STAGES.map((_,i) => h("i", {class: i<stage ? "on" : i===stage ? "now" : ""})));
+  const d = L.dates || {};
+  const when = [d.listed, d.openHouse || (L.stage>1 ? "None held" : ""), d.contract, d.sold];
+  return h("div", {class:"fence big", role:"list"}, STAGES.map((s,i) => h("div", {class:"p", role:"listitem"}, h("i", {class: i<stage ? "on" : i===stage ? "now" : ""}), h("div", {}, h("b", {}, s), h("span", {}, when[i] || " ")))));
+};
+const edge = () => { const s = document.createElementNS("http://www.w3.org/2000/svg","svg"); s.setAttribute("class","ph-edge"); s.setAttribute("viewBox","0 0 400 22"); s.setAttribute("preserveAspectRatio","none"); s.setAttribute("aria-hidden","true"); let d=""; for (let i=0;i<25;i++){ const x=i*16+1; d+=`M${x} 22V8l6-8 6 8v14z`; } s.innerHTML = `<path d="${d}" fill="currentColor"/>`; return s; };
+
+/* a graphic's picture: the real file once it's saved, otherwise a styled stand-in */
+const art = (g, L) => g.img
+  ? h("img", {src:g.img, alt:`${g.name} for ${L.street}`, loading:"lazy"})
+  : h("div", {class:"mock"}, h("div", {class:`card ${g.shape||"square"}`}, h("img", {src:L.photo, alt:"", loading:"lazy"}), h("div", {}, h("small", {}, g.label || g.name), h("strong", {}, L.street))));
+const groupsFor = L => {
+  const order = [["sold","Just sold"],["contract","Under contract"],["openhouse","Open house"],["listed","New listing"]];
+  const d = L.dates || {}, when = {sold:d.sold, contract:d.contract, openhouse:L.openHouse ? L.openHouse.label : d.openHouse, listed:d.listed};
+  return order.map(([k,t]) => ({ key:k, title:t, when:when[k]||"", pieces:(L.graphics||[]).filter(g => g.stage===k) })).filter(g => g.pieces.length);
+};
+const newestCount = L => (groupsFor(L)[0]||{pieces:[]}).pieces.length;
+const stateText = L => L.state==="making" ? "Being made now" : L.stage===3 ? "Sold. Everything is here." : `${(L.graphics||[]).length} pieces ready`;
+const statusText = L => L.stage===3 ? "Sold" : L.stage===2 ? (L.status || "Under contract") : L.openHouse ? `Open house ${L.openHouse.label.split(",")[0]}` : (L.isNew ? "Live today" : "Active");
+const captionFor = L => {
+  const tags = "#whitepicket #louisvillerealestate #helpinghomehappen #picketproud";
+  const town = (L.city||"").split(",")[0], f = facts(L);
+  if (L.stage===3) return `Sold. ${L.street} has new owners, and I couldn’t be happier for them.\n\nThinking about your own move? Let’s talk.\n\n${tags}`;
+  if (L.stage===2) return `Under contract at ${L.street}. Congratulations to my sellers.\n\nIf you missed this one, message me and I’ll tell you what’s coming next.\n\n${tags}`;
+  if (L.openHouse) return `Open house ${L.openHouse.label} at ${L.street}, ${town}.\n\n${f ? f + ", " : ""}offered at ${money(L.price)}. Come walk through. No appointment needed.\n\n${tags}`;
+  return `Just listed: ${L.street}, ${town}.\n\n${L.hook ? L.hook + " " : ""}${f ? f + ", " : ""}offered at ${money(L.price)}.\n\nMessage me for a private showing.\n\n${tags}`;
+};
+async function copy(text, done){
+  try { await navigator.clipboard.writeText(text); toast(done); }
+  catch { const ta = h("textarea"); ta.value = text; document.body.append(ta); ta.select(); let ok=false; try { ok = document.execCommand("copy"); } catch {} ta.remove(); toast(ok ? done : "Select the text and copy it by hand."); }
+}
+
+/* viewer */
+const viewer = $("#viewer");
+function openViewer(g, L){
+  $("#vt").textContent = g.name;
+  $("#vs").textContent = `${L.street}. ${g.label || ""}${g.dim ? ", " + g.dim : ""}`;
+  $("#vstage").replaceChildren(art(g, L));
+  const file = g.file || g.img;
+  $("#vacts").replaceChildren(
+    file ? h("a", {class:"btn", href:file, target:"_blank", rel:"noopener", download:""}, icon(IC.down), "Save image") : h("button", {class:"btn", disabled:true}, icon(IC.down), "Save image"),
+    h("button", {class:"btn ghost", onclick:() => { viewer.close(); ask("change", L, g); }}, "Request a change"));
+  $("#vh").textContent = file ? "On a phone: open it, then press and hold the image and choose Save." : "This piece is being finished. It will be ready to save here shortly.";
+  if (!viewer.open) viewer.showModal();
+}
+$("#vx").onclick = () => viewer.close();
+viewer.addEventListener("click", e => { if (e.target === viewer) viewer.close(); });
+
+/* requests: a short form that hands off to email so the automation picks it up */
+const sheet = $("#sheet");
+$("#sx").onclick = () => sheet.close();
+sheet.addEventListener("click", e => { if (e.target === sheet) sheet.close(); });
+const TITLES = {brochure:"Listing brochure", openhouse:"Open house graphics", photo:"Swap a photo", other:"Something else", change:"Request a change", approve:"Approve for print"};
+function ask(kind, L, g){
+  const mine = DB.listings.filter(x => x.agent === AGENT.token);
+  L = L || mine[0];
+  $("#st").textContent = TITLES[kind];
+  $("#ss").textContent = L ? `${L.street}${g ? " · " + g.name : ""}` : "";
+  const f = [];
+  if (!L && mine.length === 0){ f.push(h("p", {class:"sub"}, "Once you have a listing, you can request pieces for it here.")); }
+  if (mine.length > 1 && !g) f.push(h("div", {class:"field"}, h("label", {for:"fl"}, "Listing"), h("select", {id:"fl"}, mine.map(x => h("option", {value:x.mls, selected: x===L}, x.street)))));
+  if (kind==="openhouse") f.push(
+    h("div", {class:"field"}, h("label", {for:"fd"}, "Date"), h("input", {id:"fd", type:"date"})),
+    h("div", {class:"field"}, h("label", {}, "Time"), h("div", {class:"two"}, h("input", {id:"ft1", type:"time", value:"13:00", "aria-label":"Start"}), h("input", {id:"ft2", type:"time", value:"15:00", "aria-label":"End"}))),
+    h("div", {class:"field"}, h("label", {for:"fh"}, "Who’s hosting?"), h("input", {id:"fh", value:AGENT.name})));
+  if (kind==="photo") f.push(
+    h("div", {class:"field"}, h("label", {for:"fg"}, "Which piece?"), h("select", {id:"fg"}, (L ? L.graphics : []).map(x => h("option", {}, x.name)))),
+    h("div", {class:"field"}, h("label", {for:"fp"}, "Which photo should we use?"), h("input", {id:"fp", placeholder:"e.g. the kitchen, or MLS photo #5"})));
+  if (kind==="approve") f.push(h("p", {class:"sub"}, `This tells Marketing that ${g ? g.name.toLowerCase() : "this piece"} looks right${g && g.id==="brochure" ? " and can go to print" : ""}.`));
+  if (["brochure","other","change","photo"].includes(kind)) f.push(h("div", {class:"field"}, h("label", {for:"fn"}, kind==="brochure" ? "Anything we should know? (optional)" : kind==="photo" ? "Anything else? (optional)" : "What would you like changed?"), h("textarea", {id:"fn", placeholder: kind==="brochure" ? "e.g. backyard photo on the cover, mention the new roof" : "Describe it in your own words"})));
+  $("#sbody").replaceChildren(...f);
+  $("#sacts").replaceChildren(h("button", {class:"btn ghost", onclick:() => sheet.close()}, "Cancel"), h("button", {class:"btn", onclick:() => send(kind, L, g)}, kind==="approve" ? "Approve" : "Send request"));
+  if (!sheet.open) sheet.showModal();
+}
+function send(kind, L, g){
+  const v = id => { const el = $("#"+id, sheet); return el ? el.value.trim() : ""; };
+  if (v("fl")) L = DB.listings.find(x => x.mls === v("fl")) || L;
+  if (kind==="openhouse" && !v("fd")){ toast("Pick a date for the open house."); return; }
+  const lines = ["HUB-REQUEST v1", `type: ${kind}`, L && `mls: ${L.mls}`, L && `address: ${L.street}, ${L.city}`, `agent: ${AGENT.name} <${AGENT.email}>`,
+    g && `piece: ${g.name}`, kind==="openhouse" && `date: ${v("fd")}`, kind==="openhouse" && `time: ${v("ft1")}-${v("ft2")}`, kind==="openhouse" && `host: ${v("fh")}`,
+    kind==="photo" && `piece: ${v("fg")}`, kind==="photo" && `use photo: ${v("fp")}`, v("fn") && `notes: ${v("fn")}`].filter(Boolean).join("\n");
+  const to = DB.config.requestEmail || "";
+  const subj = `[Hub Request] ${TITLES[kind]}${L ? " — " + L.street + " (MLS " + L.mls + ")" : ""}`;
+  location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(lines)}`;
+  $("#sbody").replaceChildren(h("div", {class:"done"}, fence(3), h("h2", {class:"h2"}, "Almost there"), h("p", {class:"sub", style:"margin:0 auto"}, `Your email opened with the request filled in. Just press send${to ? " (it goes to " + to + ")" : ""}. You’ll get an email when it’s ready, and it will show up here.`)));
+  $("#sacts").replaceChildren(h("button", {class:"btn", onclick:() => sheet.close()}, "Done"));
+}
+
+/* views */
+function Welcome(admin){
+  const v = h("div", {class:"view welcome"});
+  v.append(fence(0), h("h1", {class:"hello"}, "Your marketing,", h("br"), "all in one place."),
+    h("p", {class:"sub"}, "Open the personal link in your “marketing is ready” email to see your listings, graphics and requests."));
+  if (admin){
+    const list = h("div", {class:"roster"});
+    const paint = q => list.replaceChildren(...DB.agents.filter(a => !q || a.name.toLowerCase().includes(q)).map(a => {
+      const n = DB.listings.filter(l => l.agent === a.token).length;
+      return h("button", {onclick:() => { location.search = "?a=" + encodeURIComponent(a.token); }}, a.name, h("span", {}, n ? `${n} listing${n>1?"s":""}` : "—"));
+    }));
+    const search = h("input", {class:"search", type:"search", placeholder:"Find an agent", "aria-label":"Find an agent", oninput:e => paint(e.target.value.toLowerCase())});
+    v.append(h("p", {class:"small", style:"margin-top:22px"}, `Admin view · ${DB.agents.length} agents · open anyone’s hub`), search, list);
+    paint("");
+  }
+  return v;
+}
+function Home(){
+  const mine = DB.listings.filter(l => l.agent === AGENT.token);
+  const hr = new Date().getHours(), hi = hr < 12 ? "Good morning" : hr < 18 ? "Good afternoon" : "Good evening";
+  const fresh = mine.filter(l => l.isNew), F = fresh[0] || mine[0];
+  const needs = mine.flatMap(l => (l.graphics||[]).filter(g => g.state==="review")).length;
+  const v = h("div", {class:"view"});
+  v.append(h("h1", {class:"hello"}, `${hi}, ${AGENT.first}.`),
+    h("p", {class:"sub"}, !mine.length ? "When your next listing hits the MLS, its marketing shows up here automatically." : fresh.length ? `${fresh.length} of your listings ${fresh.length>1?"have":"has"} new pieces.` : "Everything is up to date.", needs ? ` ${needs} piece${needs>1?"s are":" is"} waiting on your approval.` : ""));
+  if (F){
+    const G = groupsFor(F)[0];
+    v.append(h("section", {class:"feature", "aria-label":"Newest listing"},
+      h("div", {class:"ph"}, h("img", {src:F.photo, alt:`Front of ${F.street}`}), edge()),
+      h("div", {class:"body"},
+        h("span", {class:`status ${F.state==="making" ? "wait" : ""}`}, statusText(F)),
+        h("h2", {}, F.street), h("p", {class:"facts"}, [money(F.price), facts(F)].filter(Boolean).join(". ") + "."),
+        G ? h("div", {class:"strip"}, G.pieces.map(g => h("button", {onclick:() => openViewer(g, F), "aria-label":`Preview ${g.name}`}, h("div", {class:"mini"}, g.img ? h("img", {src:g.img, alt:""}) : h("img", {src:F.photo, alt:""})), h("span", {}, g.name)))) : null,
+        h("div", {class:"acts"}, h("button", {class:"btn", onclick:() => go(F.mls)}, "Open listing"), h("button", {class:"btn ghost", onclick:() => copy(captionFor(F), "Caption copied")}, icon(IC.copy), "Copy caption")))));
+  }
+  if (mine.length){
+    const chips = [["all","All"],["active","Active"],["contract","Under contract"],["sold","Sold"]];
+    const group = L => L.stage===3 ? "sold" : L.stage===2 ? "contract" : "active";
+    const list = h("div", {class:"rows"});
+    const paint = () => { const rows = mine.filter(l => filter==="all" || group(l)===filter);
+      list.replaceChildren(...(rows.length ? rows.map(L => h("button", {class:"row", onclick:() => go(L.mls)}, h("img", {src:L.photo, alt:"", loading:"lazy"}), h("div", {}, h("h3", {}, L.street), h("p", {}, `${money(L.price)}, ${(L.city||"").split(",")[0]}`), h("p", {class:"state"}, stateText(L))), fence(L.stage))) : [h("p", {class:"empty"}, "Nothing here right now.")])); };
+    v.append(h("div", {class:"bar"}, h("h2", {class:"h2"}, "Your listings"), h("div", {class:"chips", role:"group", "aria-label":"Filter listings"}, chips.map(([k,t]) => h("button", {"aria-pressed":String(filter===k), onclick:e => { filter = k; e.currentTarget.parentNode.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b===e.currentTarget))); paint(); }}, t)))), list);
+    paint();
+  }
+  v.append(h("p", {class:"note"}, "New listings, open houses, contracts and closings come straight from the MLS. Your graphics appear here and in your email as soon as they’re made."));
+  return v;
+}
+function Listing(L){
+  const v = h("div", {class:"view"}), groups = groupsFor(L);
+  const ledger = [["Status", L.status], ["Bedrooms", L.beds], ["Bathrooms", L.baths], ["Square feet", L.sqft && Number(L.sqft).toLocaleString("en-US")], ["MLS number", L.mls]].filter(([,b]) => b);
+  const aside = h("aside", {}, h("div", {class:"hero"},
+    h("div", {class:"ph"}, h("img", {src:L.photo, alt:`Front of ${L.street}`}), edge()),
+    h("div", {class:"body"},
+      h("span", {class:`status ${L.state==="making" ? "wait" : L.stage===3 ? "done" : ""}`}, statusText(L)),
+      h("h1", {}, L.street), h("p", {class:"facts"}, L.city), L.price ? h("p", {class:"price"}, money(L.price)) : null,
+      L.openHouse ? h("p", {class:"oh"}, `Open house · ${L.openHouse.label}`) : null,
+      fence(L.stage, true, L),
+      h("dl", {class:"ledger"}, ledger.map(([a,b]) => h("div", {}, h("dt", {}, a), h("dd", {}, String(b))))),
+      h("p", {class:"small", style:"margin-top:12px"}, "Details come from the MLS, so they match your listing."))));
+  const right = h("div", {});
+  if (L.state==="making"){
+    right.append(h("div", {class:"caption"}, h("h2", {class:"h2"}, "Your marketing is being made"), h("p", {class:"small", style:"margin-top:8px"}, "It will be here and in your email shortly. You don’t need to do anything.")));
+  }
+  groups.forEach((g, gi) => right.append(h("section", {class:"group"},
+    h("header", {}, h("h2", {class:"h2"}, g.title), h("p", {}, g.when)),
+    h("div", {class:"pieces"}, g.pieces.map(p => h("div", {class:"piece"},
+      h("button", {class:"thumb", onclick:() => openViewer(p, L), "aria-label":`Preview ${p.name}`},
+        p.state==="review" ? h("span", {class:"flag"}, "Needs your OK") : p.state==="working" ? h("span", {class:"flag soft"}, "Updating") : (gi===0 && L.isNew ? h("span", {class:"flag"}, "New") : null), art(p, L)),
+      h("div", {}, h("h3", {}, p.name), h("p", {}, p.note || p.label || "")),
+      h("div", {class:"acts"},
+        p.state==="review" ? h("button", {class:"btn sm", onclick:() => ask("approve", L, p)}, "Approve")
+          : (p.file || p.img) ? h("a", {class:"btn quiet sm", href:p.file||p.img, target:"_blank", rel:"noopener", download:""}, icon(IC.down), "Save")
+          : h("button", {class:"btn quiet sm", onclick:() => openViewer(p, L)}, icon(IC.eye), "View"))))))));
+  const cap = captionFor(L);
+  right.append(h("section", {class:"group"}, h("header", {}, h("h2", {class:"h2"}, "Caption"), h("p", {}, "Ready to paste")),
+    h("div", {class:"caption"}, h("p", {class:"t"}, cap), h("button", {class:"btn ghost sm", onclick:() => copy(cap, "Caption copied")}, icon(IC.copy), "Copy caption"))));
+  right.append(h("section", {class:"group"}, h("header", {}, h("h2", {class:"h2"}, "Need something?"), h("p", {}, "Usually back within the hour")),
+    h("div", {class:"asks"}, [["brochure","Listing brochure","Print-ready, with your photos and description"],["openhouse","Open house graphics","Post and story for your date and host"],["photo","Swap a photo","Use a different MLS photo on any piece"],["other","Something else","Wording, a fix, or a new piece"]].map(([k,t,s]) =>
+      h("button", {class:"ask", onclick:() => ask(k, L)}, h("b", {}, t), h("span", {}, s), icon(IC.next))))));
+  v.append(h("button", {class:"back", onclick:() => go("listings")}, icon(IC.back), "All listings"), h("div", {class:"listing"}, aside, right));
+  return v;
+}
+function Requests(){
+  const mine = (DB.requests||[]).filter(r => r.agent === AGENT.token);
+  const v = h("div", {class:"view"});
+  v.append(h("h1", {class:"hello"}, "Requests"), h("p", {class:"sub"}, "Brochures, open house graphics and changes you’ve asked for, and where each one stands."));
+  v.append(h("div", {class:"acts", style:"display:flex;gap:10px;flex-wrap:wrap;margin-top:20px"},
+    h("button", {class:"btn", onclick:() => ask("brochure")}, "Request a brochure"), h("button", {class:"btn ghost", onclick:() => ask("openhouse")}, "Open house graphics"), h("button", {class:"btn ghost", onclick:() => ask("other")}, "Something else")));
+  const wrap = h("div", {class:"reqs"});
+  if (!mine.length) wrap.append(h("p", {class:"empty"}, "No requests yet. Anything you ask for shows up here with its progress."));
+  mine.forEach(r => wrap.append(h("article", {class:"reqcard"},
+    h("div", {class:"head"}, h("div", {}, h("h3", {}, r.title), h("p", {class:"small"}, r.street)), r.needs ? h("span", {class:"status"}, "Needs you") : null),
+    h("ul", {class:"steps"}, (r.steps||[]).map(([a,b,c]) => h("li", {class:c||""}, a, h("span", {}, b||"")))))));
+  v.append(wrap); return v;
+}
+
+/* routing: ?a=<agent> picks the hub, #<view> picks the page */
+const SECTIONS = [["listings","Listings",IC.home],["requests","Requests",IC.inbox]];
+function go(name){ if (location.hash.slice(1) === name) route(); else location.hash = name; }
+function route(){
+  const main = $("#main");
+  if (!AGENT){ main.replaceChildren(Welcome(params.get("admin")==="1")); return; }
+  const name = (location.hash || "#listings").slice(1);
+  const L = DB.listings.find(x => x.mls === name && x.agent === AGENT.token);
+  const view = L ? Listing(L) : name==="requests" ? Requests() : Home();
+  const sec = name==="requests" ? "requests" : "listings";
+  const waiting = (DB.requests||[]).filter(r => r.agent===AGENT.token && r.needs).length + DB.listings.filter(l => l.agent===AGENT.token).flatMap(l => (l.graphics||[]).filter(g => g.state==="review")).length;
+  document.querySelectorAll(".nav,.tabs").forEach(nav => nav.replaceChildren(...SECTIONS.map(([k,t,ic]) =>
+    h("button", {"aria-current": k===sec ? "page" : false, onclick:() => go(k)}, nav.classList.contains("tabs") ? icon(ic) : null, t, k==="requests" && waiting ? h("span", {class:"count", "aria-label":`${waiting} waiting on you`}, String(waiting)) : null))));
+  main.replaceChildren(view); window.scrollTo(0,0);
+  document.title = L ? `${L.street} | White Picket Marketing Hub` : "White Picket Marketing Hub";
+}
+$("#mark").onclick = () => AGENT ? go("listings") : null;
+window.addEventListener("hashchange", route);
+
+async function load(){
+  try { const r = await fetch(DATA_URL + "?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw 0; DB = await r.json(); }
+  catch { try { DB = JSON.parse($("#seed").textContent); } catch {} }
+  DB.requests = DB.requests || [];
+  AGENT = DB.agents.find(a => a.token === params.get("a")) || null;
+  if (AGENT){
+    const w = $("#who"); w.hidden = false; w.textContent = AGENT.name.split(" ").map(s => s[0]).join("").slice(0,2); w.title = AGENT.name;
+    $(".tabs").classList.remove("off");
+  } else { $(".nav").style.display = "none"; }
+  route();
+}
+const fontsReady = Promise.race([document.fonts ? document.fonts.load("400 40px Fraunces").catch(()=>{}) : null, new Promise(r => setTimeout(r, 1500))]);
+fontsReady.then(load);
+})();
+</script>
+</body>
+</html>

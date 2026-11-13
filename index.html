@@ -567,6 +567,8 @@ async function load(){
   catch { try { const r = await fetch(DATA_URL + "?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw 0; DB = await r.json(); }
   catch { try { DB = JSON.parse($("#seed").textContent); } catch {} } }
   DB.requests = DB.requests || [];
+  /* tolerate both shapes for an open house: "Sunday, Nov 15 · 2–4 PM" or {label:"..."} */
+  (DB.listings || []).forEach(L => { if (typeof L.openHouse === "string") L.openHouse = L.openHouse.trim() ? {label: L.openHouse} : null; else if (L.openHouse && typeof L.openHouse.label !== "string") L.openHouse = null; });
   AGENT = DB.agents.find(a => a.token === params.get("a")) || null;
   if (AGENT){
     const w = $("#who"); w.hidden = false; w.textContent = AGENT.name.split(" ").map(s => s[0]).join("").slice(0,2); w.title = AGENT.name;

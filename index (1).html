@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>White Picket Marketing Hub</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#EFEDE5; --sand-2:#E6E3D9; --navy:#052B49; --red:#E22726; --sky:#A9B4B9;
+  --bg:var(--sand); --surface:#fff; --surface-2:var(--sand-2); --ink:var(--navy); --ink-2:rgba(5,43,73,.64);
+  --rule:rgba(5,43,73,.15); --rule-2:rgba(5,43,73,.08); --accent:var(--red); --on-ink:#fff; --off:#CBD2D4;
+  --bar:rgba(239,237,229,.88); --shade:0 1px 0 rgba(5,43,73,.06),0 18px 40px -24px rgba(5,43,73,.35);
+  --display:"Mirage","Fraunces",Georgia,serif; --text:"Jost","Avenir Next","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.32,.72,0,1);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#061A2B; --surface:#0C2740; --surface-2:#0A2136; --ink:#EFEDE5; --ink-2:rgba(239,237,229,.68);
+  --rule:rgba(239,237,229,.18); --rule-2:rgba(239,237,229,.09); --accent:#F0504F; --on-ink:#061A2B; --off:#2C465B;
+  --bar:rgba(6,26,43,.88); --shade:0 1px 0 rgba(0,0,0,.2),0 18px 40px -24px rgba(0,0,0,.7);}}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.45;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+.top{position:sticky;top:0;z-index:20;background:var(--bar);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--rule-2)}
+.top-in{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:14px}
+.mark{display:flex;align-items:center;gap:10px;background:none;border:0;padding:4px 0;cursor:pointer;text-align:left}
+.mark svg{width:22px;height:26px;flex:none}
+.mark b{font-family:var(--display);font-weight:400;font-size:21px;line-height:1;display:block}
+.mark span{display:block;font-size:12.5px;color:var(--ink-2);margin-top:3px;line-height:1}
+.who{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--ink-2)}
+.who i{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--on-ink);display:grid;place-items:center;font-style:normal;font-weight:600;font-size:14px}
+
+main{max-width:1120px;margin:0 auto;padding:26px 20px 110px}
+.view{animation:rise .42s var(--ease)}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hello{font-family:var(--display);font-weight:400;font-size:clamp(34px,8vw,54px);line-height:1.03;letter-spacing:-.02em}
+.sub{color:var(--ink-2);margin-top:10px;max-width:52ch}
+.h2{font-family:var(--display);font-weight:400;font-size:26px;letter-spacing:-.01em;line-height:1.1}
+.small{font-size:14.5px;color:var(--ink-2)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--on-ink);font-weight:500;font-size:15.5px;white-space:nowrap;cursor:pointer;text-decoration:none;transition:transform .15s var(--ease),opacity .15s}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn.quiet{background:var(--surface-2);color:var(--ink);border-color:transparent}
+.btn.sm{min-height:38px;padding:0 14px;font-size:14.5px}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.btn svg{width:17px;height:17px}
+.back{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:6px 0;color:var(--ink-2);font-weight:500;font-size:15px;cursor:pointer}
+
+/* fence = four pickets, one per stage */
+.fence{display:inline-grid;grid-auto-flow:column;gap:5px;align-items:end;position:relative}
+.fence::after{content:"";position:absolute;left:0;right:0;bottom:38%;height:2px;background:var(--off)}
+.fence i{display:block;width:9px;height:26px;background:var(--off);clip-path:polygon(50% 0,100% 30%,100% 100%,0 100%,0 30%);position:relative;z-index:1}
+.fence i.on{background:var(--ink)} .fence i.now{background:var(--accent)}
+.fence.big{display:grid;grid-template-columns:repeat(4,1fr);width:100%;align-items:start;gap:0}
+.fence.big::after{bottom:auto;top:44px;height:3px}
+.fence.big .p{display:grid;justify-items:center;gap:9px;text-align:center;position:relative;z-index:1}
+.fence.big i{width:22px;height:64px;transform-origin:bottom;animation:grow .5s var(--ease) both}
+.fence.big .p:nth-child(2) i{animation-delay:.07s}.fence.big .p:nth-child(3) i{animation-delay:.14s}.fence.big .p:nth-child(4) i{animation-delay:.21s}
+@keyframes grow{from{transform:scaleY(.2);opacity:0}to{transform:none;opacity:1}}
+.fence.big b{font-weight:500;font-size:14px;line-height:1.15;display:block}
+.fence.big span{font-size:12.5px;color:var(--ink-2);display:block;margin-top:2px}
+
+.status{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;white-space:nowrap}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.status.wait::before{background:var(--sky)}
+
+/* listing cards */
+.cards{display:grid;gap:18px;margin-top:26px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.card{background:var(--surface);border-radius:20px;overflow:hidden;box-shadow:var(--shade);border:0;padding:0;text-align:left;cursor:pointer;display:grid;transition:transform .2s var(--ease)}
+.card:hover{transform:translateY(-2px)}
+.card .ph{aspect-ratio:3/2;background:var(--surface-2);overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.card .body{padding:16px 18px 18px;display:grid;gap:8px}
+.card h3{font-family:var(--display);font-weight:400;font-size:25px;line-height:1.05;letter-spacing:-.01em}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+
+/* listing detail */
+.hero{margin-top:14px;background:var(--surface);border-radius:22px;overflow:hidden;box-shadow:var(--shade)}
+.hero .ph{aspect-ratio:16/9;max-height:460px;width:100%;overflow:hidden;background:var(--surface-2)}
+.hero .ph img{width:100%;height:100%;object-fit:cover}
+.hero .body{padding:20px 22px 24px}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(32px,7vw,48px);line-height:1.03;letter-spacing:-.02em;margin-top:8px}
+.facts{color:var(--ink-2);margin-top:6px}
+.track{margin-top:24px;padding-top:20px;border-top:1px solid var(--rule-2)}
+
+.sec{margin-top:36px}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.gallery{display:grid;gap:18px;margin-top:18px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.tile{background:var(--surface);border-radius:18px;box-shadow:var(--shade);overflow:hidden;display:flex;flex-direction:column}
+.frame{position:relative;background:var(--surface-2);overflow:hidden}
+.frame.square{aspect-ratio:1/1}.frame.portrait{aspect-ratio:4/5}.frame.story{aspect-ratio:9/16;max-height:420px}.frame.brochure{aspect-ratio:11/17;max-height:420px}
+.frame img{width:100%;height:100%;object-fit:cover}
+.frame .mock{position:absolute;inset:0}
+.frame .mock img{filter:saturate(.9)}
+.frame .mock .band{position:absolute;left:0;right:0;bottom:0;padding:14px 14px 16px;background:linear-gradient(transparent,rgba(5,43,73,.9) 45%);color:#fff}
+.frame .mock .band b{font-family:var(--display);font-weight:400;font-size:20px;display:block;line-height:1.1}
+.frame .mock .band span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.chip{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.92);color:var(--navy);font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px}
+.chip.red{background:var(--accent);color:#fff}
+.tile .meta{padding:14px 14px 16px;display:grid;gap:10px;flex:1}
+.tile .meta b{font-weight:500;font-size:16px}
+.tile .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+
+/* request panel */
+.reqs{display:grid;gap:14px;margin-top:18px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.req{background:var(--surface);border:1px solid var(--rule-2);border-radius:18px;padding:18px;text-align:left;cursor:pointer;display:grid;gap:6px;transition:border-color .2s}
+.req:hover{border-color:var(--ink)}
+.req b{font-family:var(--display);font-weight:400;font-size:21px}
+.sheet-bg{position:fixed;inset:0;background:rgba(5,20,35,.45);z-index:40;display:flex;align-items:flex-end;justify-content:center;animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.sheet{background:var(--bg);width:100%;max-width:560px;border-radius:22px 22px 0 0;padding:22px 22px calc(22px + env(safe-area-inset-bottom));max-height:90vh;overflow:auto;animation:up .35s var(--ease)}
+@media (min-width:700px){.sheet-bg{align-items:center}.sheet{border-radius:22px}}
+@keyframes up{from{transform:translateY(30px);opacity:.4}}
+.field{display:grid;gap:6px;margin-top:14px}
+.field label{font-size:14px;font-weight:500}
+.field input,.field select,.field textarea{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;min-height:46px}
+.field textarea{min-height:110px;resize:vertical}
+.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.photos label{position:relative;cursor:pointer}
+.photos input{position:absolute;opacity:0}
+.photos img{aspect-ratio:1;object-fit:cover;border-radius:8px;border:3px solid transparent}
+.photos input:checked+img{border-color:var(--accent)}
+.sheet .acts{display:flex;gap:10px;margin-top:20px;justify-content:flex-end;flex-wrap:wrap}
+.done{text-align:center;padding:10px 0 4px}
+.done .h2{margin-top:10px}
+
+.empty{margin-top:30px;padding:28px;border:1px dashed var(--rule);border-radius:18px;text-align:center;color:var(--ink-2)}
+.splash{min-height:60vh;display:grid;place-content:center;text-align:center;gap:14px}
+.splash .fence{margin:0 auto}
+.foot{margin-top:50px;font-size:13px;color:var(--ink-2);text-align:center}
+.agents{display:grid;gap:10px;margin-top:20px;max-width:420px;margin-inline:auto}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <button class="mark" id="home" aria-label="Home">
+    <svg viewBox="0 0 22 26" aria-hidden="true"><path fill="currentColor" d="M3 6l3-4 3 4v20H3zM13 6l3-4 3 4v20h-6z"/><rect x="0" y="12" width="22" height="2.4" fill="currentColor"/></svg>
+    <div><b>White Picket</b><span>Marketing Hub</span></div>
+  </button>
+  <div class="who" id="who"></div>
+</div></header>
+<main id="app"></main>
+
+<script id="seed" type="application/json">{"config": {"brokerage": "White Picket Real Estate", "requestEmail": "REPLACE_WITH_REQUEST_INBOX@whitepicketky.com", "updated": "2026-11-12T19:58:00-05:00"}, "agents": [{"token": "taylor-archie-6427", "name": "Taylor Archie", "first": "Taylor", "email": "taylor@whitepicketky.com", "phone": "502-994-3796", "headshot": ""}, {"token": "danielle-baise-800e", "name": "Danielle Baise", "first": "Danielle", "email": "danielle@whitepicketky.com", "phone": "502-468-6863", "headshot": ""}, {"token": "betsy-barefoot-b6e1", "name": "Betsy Barefoot", "first": "Betsy", "email": "betsy@whitepicketky.com", "phone": "502-744-8302", "headshot": ""}, {"token": "amy-batcher-e3ae", "name": "Amy Batcher", "first": "Amy", "email": "amy@whitepicketky.com", "phone": "408-799-5036", "headshot": ""}, {"token": "paula-burch-5899", "name": "Paula Burch", "first": "Paula", "email": "paula@whitepicketky.com", "phone": "502-644-7132", "headshot": ""}, {"token": "allison-carrera-6b5d", "name": "Allison Carrera", "first": "Allison", "email": "allison@whitepicketky.com", "phone": "502-377-7032", "headshot": ""}, {"token": "anna-carver-398e", "name": "Anna Carver", "first": "Anna", "email": "anna@whitepicketky.com", "phone": "502-631-5459", "headshot": ""}, {"token": "faith-causey-3616", "name": "Faith Causey", "first": "Faith", "email": "faith@whitepicketky.com", "phone": "502-526-1872", "headshot": ""}, {"token": "amanda-croak-bbb8", "name": "Amanda Croak", "first": "Amanda", "email": "amanda@whitepicketky.com", "phone": "502-415-2277", "headshot": ""}, {"token": "kyle-elmore-d871", "name": "Kyle Elmore", "first": "Kyle", "email": "kyle@whitepicketky.com", "phone": "502-389-9920", "headshot": ""}, {"token": "maude-van-der-elst-86cf", "name": "Maude Van Der Elst", "first": "Maude", "email": "maude@whitepicketky.com", "phone": "502-468-3227", "headshot": ""}, {"token": "katie-esterle-q8m4", "name": "Katie Esterle", "first": "Katie", "email": "katie@whitepicketky.com", "phone": "502-810-8808", "headshot": ""}, {"token": "caroline-ferrell-8b18", "name": "Caroline Ferrell", "first": "Caroline", "email": "caroline@whitepicketky.com", "phone": "502-438-8452", "headshot": ""}, {"token": "caitlin-griffee-3c95", "name": "Caitlin Griffee", "first": "Caitlin", "email": "caitlin@whitepicketky.com", "phone": "502-842-4463", "headshot": ""}, {"token": "leah-heitzman-cd11", "name": "Leah Heitzman", "first": "Leah", "email": "leah@whitepicketky.com", "phone": "502-291-5213", "headshot": ""}, {"token": "emery-howard-r3x9", "name": "Emery Howard", "first": "Emery", "email": "emery@whitepicketky.com", "phone": "270-535-2605", "headshot": ""}, {"token": "isabella-kent-9abe", "name": "Isabella Kent", "first": "Isabella", "email": "isabella@whitepicketky.com", "phone": "502-741-0541", "headshot": ""}, {"token": "blaire-kidwell-db72", "name": "Blaire Kidwell", "first": "Blaire", "email": "blaire@whitepicketky.com", "phone": "502-767-3507", "headshot": ""}, {"token": "erin-kidwell-4375", "name": "Erin Kidwell", "first": "Erin", "email": "erin@whitepicketky.com", "phone": "502-639-1529", "headshot": ""}, {"token": "andrew-kolkmeyer-1d65", "name": "Andrew Kolkmeyer", "first": "Andrew", "email": "andrew@whitepicketky.com", "phone": "859-816-9152", "headshot": ""}, {"token": "alyssa-langan-436b", "name": "Alyssa Langan", "first": "Alyssa", "email": "alyssa@whitepicketky.com", "phone": "502-457-3934", "headshot": ""}, {"token": "kaelin-masters-84ab", "name": "Kaelin Masters", "first": "Kaelin", "email": "kaelin@whitepicketky.com", "phone": "502-381-1550", "headshot": ""}, {"token": "lauren-mcdowell-66e9", "name": "Lauren McDowell", "first": "Lauren", "email": "lauren@whitepicketky.com", "phone": "502-424-2811", "headshot": ""}, {"token": "shelby-mcfarland-eb44", "name": "Shelby Mcfarland", "first": "Shelby", "email": "shelby@whitepicketky.com", "phone": "502-767-4332", "headshot": ""}, {"token": "abby-metzmeier-7k2p", "name": "Abby Metzmeier", "first": "Abby", "email": "abby@whitepicketky.com", "phone": "502-619-2582", "headshot": ""}, {"token": "sienna-palombino-f215", "name": "Sienna Palombino", "first": "Sienna", "email": "sienna@whitepicketky.com", "phone": "502-529-9522", "headshot": ""}, {"token": "elizabeth-park-7697", "name": "Elizabeth Park", "first": "Elizabeth", "email": "elizabeth@whitepicketky.com", "phone": "502-600-2620", "headshot": ""}, {"token": "claudia-pham-88d8", "name": "Claudia Pham", "first": "Claudia", "email": "claudia@whitepicketky.com", "phone": "502-619-0200", "headshot": ""}, {"token": "jenna-plumeri-0990", "name": "Jenna Plumeri", "first": "Jenna", "email": "jenna@whitepicketky.com", "phone": "502-415-3684", "headshot": ""}, {"token": "william-powell-db6f", "name": "William Powell", "first": "William", "email": "william@whitepicketky.com", "phone": "502-650-0075", "headshot": ""}, {"token": "lyle-rommelman-ad83", "name": "Lyle Rommelman", "first": "Lyle", "email": "lyle@whitepicketky.com", "phone": "270-210-5542", "headshot": ""}, {"token": "lydia-schmitt-c99c", "name": "Lydia Schmitt", "first": "Lydia", "email": "lydia@whitepicketky.com", "phone": "502-851-7799", "headshot": ""}, {"token": "katherine-sims-c743", "name": "Katherine Sims", "first": "Katherine", "email": "katherine@whitepicketky.com", "phone": "502-523-2522", "headshot": ""}, {"token": "leia-spickard-c973", "name": "Leia Spickard", "first": "Leia", "email": "leia@whitepicketky.com", "phone": "502-693-8284", "headshot": ""}, {"token": "tiffany-stout-bf5e", "name": "Tiffany Stout", "first": "Tiffany", "email": "tiffany@whitepicketky.com", "phone": "502-592-4651", "headshot": ""}, {"token": "joshua-watkins-1beb", "name": "Joshua Watkins", "first": "Joshua", "email": "joshua@whitepicketky.com", "phone": "502-510-1579", "headshot": ""}, {"token": "bryan-weede-591c", "name": "Bryan Weede", "first": "Bryan", "email": "bryan@whitepicketky.com", "phone": "502-295-7411", "headshot": ""}, {"token": "elizabeth-westgate-e49a", "name": "Elizabeth Westgate", "first": "Elizabeth", "email": "elizabethw@whitepicketky.com", "phone": "607-765-1496", "headshot": ""}, {"token": "tara-wood-b24a", "name": "Tara Wood", "first": "Tara", "email": "tara@whitepicketky.com", "phone": "502-727-2584", "headshot": ""}], "listings": [{"mls": "1734442", "agent": "abby-metzmeier-7k2p", "street": "6300 Shadow Wood Ct", "city": "Prospect, KY 40059", "price": 510000, "beds": 4, "baths": "2 full \u00b7 2 half", "sqft": 3338, "status": "Active", "stage": 0, "photo": "https://cdn.resize.sparkplatform.com/lou/1600x1200/true/20261112161603485331000000-o.jpg", "dates": {"listed": "Nov 12"}, "openHouse": null, "graphics": [{"id": "nl-post", "name": "New Listing Post", "stage": "listed", "shape": "square", "img": "", "file": "", "state": "ready"}, {"id": "nl-story", "name": "New Listing Story", "note": "3 frames", "stage": "listed", "shape": "story", "img": "", "file": "", "state": "ready"}, {"id": "brochure", "name": "Listing Brochure", "note": "Print-ready, 11\u00d717 folded", "stage": "listed", "shape": "brochure", "img": "", "file": "", "state": "review"}]}, {"mls": "1731715", "agent": "katie-esterle-q8m4", "street": "723 Gwendolyn St", "city": "Louisville, KY 40203", "price": 210000, "beds": null, "baths": null, "sqft": null, "status": "Under Contract", "stage": 2, "photo": "https://cdn.resize.sparkplatform.com/lou/1600x1200/true/20261012094358072787000000-o.jpg", "dates": {"listed": "Oct 12", "contract": "Nov 12"}, "openHouse": null, "graphics": [{"id": "uc-post", "name": "Under Contract Post", "stage": "contract", "shape": "portrait", "img": "", "file": "", "state": "ready"}, {"id": "uc-story", "name": "Under Contract Story", "stage": "contract", "shape": "story", "img": "", "file": "", "state": "ready"}]}, {"mls": "1733379", "agent": "emery-howard-r3x9", "street": "3129 Hewitt Ave", "city": "Louisville, KY 40220", "price": 324000, "beds": null, "baths": null, "sqft": null, "status": "Active", "stage": 1, "photo": "https://cdn.resize.sparkplatform.com/lou/1600x1200/true/20261030155405071461000000-o.jpg", "dates": {"listed": "Oct 30", "openHouse": "Nov 15"}, "openHouse": {"label": "Sunday, Nov 15 \u00b7 2\u20134 PM"}, "graphics": [{"id": "oh-post", "name": "Open House Post", "note": "Sun, Nov 15 \u00b7 2\u20134 PM", "stage": "openhouse", "shape": "portrait", "img": "", "file": "", "state": "ready"}, {"id": "oh-story", "name": "Open House Story", "note": "Sun, Nov 15 \u00b7 2\u20134 PM", "stage": "openhouse", "shape": "story", "img": "", "file": "", "state": "ready"}]}]}</script>
+<script>
+(function(){
+"use strict";
+/* Where listing data comes from. data.json sits next to this page; the automation keeps it current. */
+const DATA_URL = "data.json";
+let DB = null;
+
+const $ = (s, r=document) => r.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money = n => n ? "$" + Number(n).toLocaleString("en-US") : "";
+const params = () => new URLSearchParams(location.search);
+const STAGES = [["listed","Listed"],["openhouse","Open House"],["contract","Under Contract"],["sold","Sold"]];
+const dateFor = (L,k) => ({listed:L.dates.listed, openhouse:L.dates.openHouse, contract:L.dates.contract, sold:L.dates.sold})[k] || "";
+
+async function load(){
+  try{
+    const r = await fetch(DATA_URL + "?t=" + Date.now(), {cache:"no-store"});
+    if(!r.ok) throw 0;
+    DB = await r.json();
+  }catch(e){
+    try{ DB = JSON.parse($("#seed").textContent); }catch(_){ DB = {config:{},agents:[],listings:[]}; }
+  }
+  route();
+}
+
+function go(q){ history.pushState(null,"","?"+new URLSearchParams(q).toString()); route(); window.scrollTo({top:0}); }
+window.addEventListener("popstate", route);
+$("#home").onclick = () => { const a = params().get("a"); a ? go({a}) : go({}); };
+
+function route(){
+  const p = params(), a = p.get("a"), l = p.get("l");
+  const agent = DB.agents.find(x => x.token === a);
+  $("#who").innerHTML = agent ? `<span>${esc(agent.name)}</span><i>${esc(agent.name.split(" ").map(w=>w[0]).join("").slice(0,2))}</i>` : "";
+  if(!agent){ return splash(p.get("admin")==="1"); }
+  const mine = DB.listings.filter(x => x.agent === agent.token);
+  const L = l && mine.find(x => x.mls === l);
+  L ? listing(agent, L) : home(agent, mine);
+}
+
+function fence(stage, big, L){
+  if(!big) return `<span class="fence" aria-label="${STAGES[stage][1]}">${STAGES.map((s,i)=>`<i class="${i<stage?"on":i===stage?"now":""}"></i>`).join("")}</span>`;
+  return `<div class="fence big">${STAGES.map(([k,n],i)=>`<div class="p"><i class="${i<stage?"on":i===stage?"now":""}"></i><div><b>${n}</b><span>${esc(dateFor(L,k)) || (i>stage?"—":"")}</span></div></div>`).join("")}</div>`;
+}
+
+function splash(admin){
+  $("#app").innerHTML = `<section class="view splash">
+    ${fence(0)}
+    <h1 class="hello">Your marketing,<br>all in one place.</h1>
+    <p class="sub" style="margin:0 auto">Open the personal link from your “marketing is ready” email to see your listings and graphics.</p>
+    ${admin ? `<div class="agents"><p class="small">Admin preview — open an agent's hub:</p>${DB.agents.map(a=>`<button class="btn ghost" data-a="${esc(a.token)}">${esc(a.name)}</button>`).join("")}</div>` : ""}
+  </section>`;
+  document.querySelectorAll("[data-a]").forEach(b => b.onclick = () => go({a:b.dataset.a}));
+}
+
+function home(agent, mine){
+  const hour = new Date().getHours();
+  const greet = hour<12?"Good morning":hour<17?"Good afternoon":"Good evening";
+  $("#app").innerHTML = `<section class="view">
+    <h1 class="hello">${greet}, ${esc(agent.first)}.</h1>
+    <p class="sub">${mine.length ? `You have ${mine.length} listing${mine.length>1?"s":""} with marketing ready. Tap one to view, download, or request something new.` : "No active listings yet. When your next listing hits the MLS, its marketing will show up here automatically."}</p>
+    ${mine.length ? `<div class="cards">${mine.map(L=>`
+      <button class="card" data-l="${esc(L.mls)}">
+        <div class="ph"><img src="${esc(L.photo)}" alt="" loading="lazy"></div>
+        <div class="body">
+          <div class="row"><span class="status${L.graphics.some(g=>g.state!=="ready")?" wait":""}">${esc(L.status)}</span>${fence(L.stage)}</div>
+          <h3>${esc(L.street)}</h3>
+          <p class="small">${esc(L.city)}${L.price?` · ${money(L.price)}`:""}</p>
+          <p class="small">${L.graphics.length} graphic${L.graphics.length>1?"s":""} ready</p>
+        </div>
+      </button>`).join("")}</div>` : `<div class="empty">Nothing here yet.</div>`}
+    <p class="foot">White Picket Real Estate · Questions? Reply to any hub email.</p>
+  </section>`;
+  document.querySelectorAll("[data-l]").forEach(b => b.onclick = () => go({a:agent.token, l:b.dataset.l}));
+}
+
+function tile(L, g){
+  const has = !!g.img;
+  const chip = g.state==="review" ? `<span class="chip red">Needs your approval</span>` : g.state==="working" ? `<span class="chip">Being updated…</span>` : "";
+  const art = has ? `<img src="${esc(g.img)}" alt="${esc(g.name)} for ${esc(L.street)}" loading="lazy">`
+    : `<div class="mock"><img src="${esc(L.photo)}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="band"><span>${esc(g.name)}</span><b>${esc(L.street)}</b></div></div>`;
+  const dl = g.file || g.img;
+  return `<article class="tile">
+    <div class="frame ${esc(g.shape||"square")}">${art}${chip}</div>
+    <div class="meta">
+      <div><b>${esc(g.name)}</b>${g.note?`<p class="small">${esc(g.note)}</p>`:""}</div>
+      <div class="acts">
+        ${dl ? `<a class="btn sm" href="${esc(dl)}" download target="_blank" rel="noopener">Download</a>` : `<span class="btn sm" aria-disabled="true">Download</span>`}
+        ${g.state==="review" ? `<button class="btn sm ghost" data-req="approve" data-g="${esc(g.id)}">Approve</button>` : ""}
+        <button class="btn sm quiet" data-req="change" data-g="${esc(g.id)}">Request a change</button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function listing(agent, L){
+  const order = {listed:0, openhouse:1, contract:2, sold:3};
+  const groups = STAGES.map(([k,n]) => [n, L.graphics.filter(g=>g.stage===k)]).filter(([,gs])=>gs.length).reverse();
+  const facts = [L.beds && `${L.beds} bed`, L.baths && `${L.baths} bath`, L.sqft && `${Number(L.sqft).toLocaleString()} sq ft`].filter(Boolean).join(" · ");
+  $("#app").innerHTML = `<section class="view">
+    <button class="back" id="bk">← All listings</button>
+    <div class="hero">
+      <div class="ph"><img src="${esc(L.photo)}" alt="${esc(L.street)}"></div>
+      <div class="body">
+        <span class="status">${esc(L.status)}</span>
+        <h1>${esc(L.street)}</h1>
+        <p class="facts">${esc(L.city)}${L.price?` · ${money(L.price)}`:""}${facts?`<br>${esc(facts)}`:""}</p>
+        ${L.openHouse?`<p class="facts" style="color:var(--accent);font-weight:500">Open house · ${esc(L.openHouse.label)}</p>`:""}
+        <div class="track">${fence(L.stage, true, L)}</div>
+      </div>
+    </div>
+
+    ${groups.map(([n,gs])=>`<div class="sec">
+      <div class="sec-head"><h2 class="h2">${esc(n)} marketing</h2><span class="small">${gs.length} item${gs.length>1?"s":""}</span></div>
+      <div class="gallery">${gs.map(g=>tile(L,g)).join("")}</div>
+    </div>`).join("")}
+
+    <div class="sec">
+      <div class="sec-head"><h2 class="h2">Need something?</h2><span class="small">Requests come back here, usually within the hour.</span></div>
+      <div class="reqs">
+        <button class="req" data-req="brochure"><b>Listing brochure</b><span class="small">Print-ready 11×17, with your photos and description.</span></button>
+        <button class="req" data-req="openhouse"><b>Open house graphics</b><span class="small">Post + story for your date and time, with the host’s name.</span></button>
+        <button class="req" data-req="photo"><b>Swap a photo</b><span class="small">Pick a different MLS photo for any graphic.</span></button>
+        <button class="req" data-req="other"><b>Something else</b><span class="small">Wording, a fix, or a new piece — just describe it.</span></button>
+      </div>
+    </div>
+    <p class="foot">MLS# ${esc(L.mls)} · Updated automatically from the MLS</p>
+  </section>`;
+  $("#bk").onclick = () => go({a:agent.token});
+  document.querySelectorAll("[data-req]").forEach(b => b.onclick = () => request(agent, L, b.dataset.req, b.dataset.g));
+}
+
+/* Requests open a short form, then hand off to email so the automation can pick them up. */
+function request(agent, L, kind, gid){
+  const g = gid && L.graphics.find(x=>x.id===gid);
+  const titles = {brochure:"Request a listing brochure", openhouse:"Request open house graphics", photo:"Swap a photo", other:"Request something", change:`Change: ${g?g.name:""}`, approve:`Approve ${g?g.name:""}`};
+  let body = "";
+  if(kind==="openhouse") body = `
+    <div class="field"><label for="d">Date</label><input id="d" type="date" required></div>
+    <div class="field"><label for="t1">Time</label><div style="display:flex;gap:8px"><input id="t1" type="time" value="13:00" style="flex:1"><input id="t2" type="time" value="15:00" style="flex:1"></div></div>
+    <div class="field"><label for="h">Who’s hosting?</label><input id="h" value="${esc(agent.name)}"></div>`;
+  else if(kind==="photo") body = `
+    <div class="field"><label for="gsel">Which graphic?</label><select id="gsel">${L.graphics.map(x=>`<option>${esc(x.name)}</option>`).join("")}</select></div>
+    <div class="field"><label>Which photo should we use instead?</label><p class="small">Describe it (e.g. “the kitchen photo” or “MLS photo #5”).</p><input id="ph" placeholder="e.g. the backyard photo"></div>`;
+  else if(kind==="approve") body = `<p class="sub">This tells us ${esc(g.name)} looks good${g.id==="brochure"?" and can go to print":""}.</p>`;
+  else body = `<div class="field"><label for="n">${kind==="brochure"?"Anything we should know? (optional)":"What would you like?"}</label><textarea id="n" placeholder="${kind==="brochure"?"e.g. use the backyard photo on the cover, mention the new roof":"Describe the change"}"></textarea></div>`;
+
+  const bg = document.createElement("div");
+  bg.className = "sheet-bg";
+  bg.innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-label="${esc(titles[kind])}">
+    <h2 class="h2">${esc(titles[kind])}</h2>
+    <p class="small" style="margin-top:6px">${esc(L.street)} · MLS# ${esc(L.mls)}</p>
+    ${body}
+    <div class="acts"><button class="btn ghost" id="x">Cancel</button><button class="btn" id="ok">${kind==="approve"?"Approve":"Send request"}</button></div>
+  </div>`;
+  document.body.appendChild(bg);
+  const close = () => bg.remove();
+  bg.addEventListener("click", e => { if(e.target===bg) close(); });
+  $("#x",bg).onclick = close;
+  $("#ok",bg).onclick = () => {
+    const v = id => { const el = $("#"+id,bg); return el ? el.value : ""; };
+    const lines = [
+      `HUB-REQUEST v1`,
+      `type: ${kind}`,
+      `mls: ${L.mls}`,
+      `address: ${L.street}, ${L.city}`,
+      `agent: ${agent.name} <${agent.email}>`,
+      g ? `graphic: ${g.name}` : "",
+      kind==="openhouse" ? `date: ${v("d")}\ntime: ${v("t1")}-${v("t2")}\nhost: ${v("h")}` : "",
+      kind==="photo" ? `graphic: ${v("gsel")}\nnew photo: ${v("ph")}` : "",
+      v("n") ? `notes: ${v("n")}` : ""
+    ].filter(Boolean).join("\n");
+    const subj = `[Hub Request] ${titles[kind]} — ${L.street} (MLS ${L.mls})`;
+    location.href = `mailto:${encodeURIComponent(DB.config.requestEmail||"")}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(lines)}`;
+    $(".sheet",bg).innerHTML = `<div class="done">${fence(STAGES.length-1)}<h2 class="h2">Request on its way</h2><p class="sub" style="margin:10px auto 0">Your email app opened with the request filled in — just hit send. We’ll email you when it’s ready, and it’ll show up right here.</p><div class="acts" style="justify-content:center"><button class="btn" id="x2">Done</button></div></div>`;
+    $("#x2",bg).onclick = close;
+  };
+}
+
+load();
+})();
+</script>
+</body>
+</html>
